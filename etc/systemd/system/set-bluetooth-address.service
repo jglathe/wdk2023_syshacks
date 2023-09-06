@@ -1,0 +1,10 @@
+[Unit]
+Description=Set Bluetooth Address
+After=bluetooth.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/btmgmt public-addr AD:5A:00:F0:FD:8C
+
+[Install]
+WantedBy=multi-user.target
