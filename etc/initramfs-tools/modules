@@ -1,29 +1,19 @@
-# List of modules that you want to include in your initramfs.
-# They will be loaded at boot time in the order below.
-#
-# Syntax:  module_name [args ...]
-#
-# You must run update-initramfs(8) to effect this change.
-#
-# Examples:
-#
-#pwm_bl
+pwm_bl
 phy_qcom_qmp_pcie
+pcie_qcom
+phy_qcom
+qmp_pcie
 phy_qcom_qmp_combo
-phy_qcom_snps_femto_v2
-mhi
-mhi_pci_generic
 qrtr
-qrtr_mhi
 phy_qcom_edp
 gpio_sbu_mux
-#i2c_hid_of
+i2c_hid_of
 i2c_qcom_geni
 pmic_glink_altmode
-pmic_glink
 leds_qcom_lpg
 qcom_q6v5_pas  # This module loads a lot of FW blobs
 panel_edp
+panel-edp
 msm
 nvme
 usb_storage
