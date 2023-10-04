@@ -1,0 +1,37 @@
+#!/bin/sh
+
+set -e
+
+PREREQ=""
+
+prereqs()
+{
+	echo "$PREREQ"
+}
+
+case \\$1 in
+# get pre-requisites
+prereqs)
+	prereqs
+	exit 0
+	;;
+esac
+
+. /usr/share/initramfs-tools/hook-functions
+
+# Define a list of firmware files to be included
+FIRMWARE_FILES="\
+qcom/sc8280xp/MICROSOFT/DEVKIT23/qcadsp8280.mbn \
+qcom/sc8280xp/MICROSOFT/DEVKIT23/qccdsp8280.mbn \
+qcom/sc8280xp/MICROSOFT/DEVKIT23/qcdxkmsuc8280.mbn \
+qcom/sc8280xp/MICROSOFT/DEVKIT23/qcvss8280.mbn \
+qcom/a660_sqe.fw \
+qcom/a660_gmu.bin \
+rtl_nic/rtl8153b-2.fw"
+
+# Copy each firmware file to initramfs
+for file in $FIRMWARE_FILES; do
+    dir=$(dirname "$file")
+    mkdir -p "${DESTDIR}/lib/firmware/${dir}"
+    cp "/lib/firmware/${file}" "${DESTDIR}/lib/firmware/${dir}/"
+done
