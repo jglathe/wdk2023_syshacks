@@ -6,6 +6,7 @@ After=bluetooth.service
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/set-bluetooth-address.sh
+RuntimeMaxSec=120
 
 [Install]
 WantedBy=multi-user.target
