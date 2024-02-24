@@ -25,13 +25,13 @@ FW_USERDIR="usr/lib/firmware/updates"
 
 # Define a list of firmware files to be included
 FIRMWARE_FILES="\
-FW_USERDIR/qcom/sc8280xp/MICROSOFT/DEVKIT23/qcadsp8280.mbn \
-FW_USERDIR/qcom/sc8280xp/MICROSOFT/DEVKIT23/qccdsp8280.mbn \
-FW_USERDIR/qcom/sc8280xp/MICROSOFT/DEVKIT23/qcdxkmsuc8280.mbn \
-FW_USERDIR/qcom/sc8280xp/MICROSOFT/DEVKIT23/qcvss8280.mbn \
-FW_BASEDIR/qcom/a660_sqe.fw.zst \
-FW_BASEDIR/qcom/a660_gmu.bin.zst \
-FW_BASEDIR/rtl_nic/rtl8153b-2.fw.zst"
+$FW_USERDIR/qcom/sc8280xp/MICROSOFT/DEVKIT23/qcadsp8280.mbn \
+$FW_USERDIR/qcom/sc8280xp/MICROSOFT/DEVKIT23/qccdsp8280.mbn \
+$FW_USERDIR/qcom/sc8280xp/MICROSOFT/DEVKIT23/qcdxkmsuc8280.mbn \
+$FW_USERDIR/qcom/sc8280xp/MICROSOFT/DEVKIT23/qcvss8280.mbn \
+$FW_BASEDIR/qcom/a660_sqe.fw.zst \
+$FW_BASEDIR/qcom/a660_gmu.bin.zst \
+$FW_BASEDIR/rtl_nic/rtl8153b-2.fw.zst"
 
 # Copy each firmware file to initramfs
 for file in $FIRMWARE_FILES; do
