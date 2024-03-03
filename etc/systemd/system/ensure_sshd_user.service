@@ -1,0 +1,12 @@
+[Unit]
+Description=Ensure SSHD User Exists
+After=basic.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ensure_sshd_user.sh
+RemainAfterExit=true
+
+[Install]
+WantedBy=network.target
+
