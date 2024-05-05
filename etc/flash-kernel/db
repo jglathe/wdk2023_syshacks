@@ -1,0 +1,7 @@
+# somewhat RFC2822 based, but case sensitive, not tolerant to spaces etc.
+# The entries are supposed to be sorted by their (first) Machine line
+
+Machine: Microsoft Dev Kit 2023
+Kernel-Flavors: any
+DTB-Id: qcom/sc8280xp-microsoft-blackrock.dtb
+
