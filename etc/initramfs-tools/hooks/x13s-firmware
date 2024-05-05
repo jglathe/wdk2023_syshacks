@@ -21,13 +21,13 @@ esac
 
 # Define a list of firmware files to be included
 FIRMWARE_FILES="\
-qcom/sc8280xp/LENOVO/21BX/qcadsp8280.mbn \
-qcom/sc8280xp/LENOVO/21BX/qccdsp8280.mbn \
-qcom/sc8280xp/LENOVO/21BX/qcdxkmsuc8280.mbn \
-qcom/sc8280xp/LENOVO/21BX/qcvss8280.mbn \
-qcom/sc8280xp/LENOVO/21BX/qcslpi8280.mbn \
-qcom/a660_sqe.fw \
-qcom/a660_gmu.bin"
+qcom/sc8280xp/LENOVO/21BX/qcadsp8280.mbn.zst \
+qcom/sc8280xp/LENOVO/21BX/qccdsp8280.mbn.zst \
+qcom/sc8280xp/LENOVO/21BX/qcdxkmsuc8280.mbn.zst \
+qcom/sc8280xp/LENOVO/21BX/qcvss8280.mbn.zst \
+qcom/sc8280xp/LENOVO/21BX/qcslpi8280.mbn.zst \
+qcom/a660_sqe.fw.zst \
+qcom/a660_gmu.bin.zst"
 
 # Copy each firmware file to initramfs
 for file in $FIRMWARE_FILES; do
