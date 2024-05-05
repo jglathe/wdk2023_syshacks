@@ -1,19 +1,20 @@
 pwm_bl
 phy_qcom_qmp_pcie
 pcie_qcom
-phy_qcom
-qmp_pcie
 phy_qcom_qmp_combo
 qrtr
 phy_qcom_edp
+typec
 gpio_sbu_mux
 i2c_hid_of
 i2c_qcom_geni
 pmic_glink_altmode
 leds_qcom_lpg
-qcom_q6v5_pas  # This module loads a lot of FW blobs
+qcom_q6v5_pas
+pinctrl_sc8280xp
+gpucc_sc8280xp
+dispcc_sc8280xp
 panel_edp
-panel-edp
 msm
 nvme
 usb_storage
