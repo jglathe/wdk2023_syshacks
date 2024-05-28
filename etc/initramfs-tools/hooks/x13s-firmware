@@ -1,0 +1,45 @@
+#!/bin/sh
+
+set -e
+
+PREREQ=""
+
+prereqs()
+{
+	echo "$PREREQ"
+}
+
+case \\$1 in
+# get pre-requisites
+prereqs)
+	prereqs
+	exit 0
+	;;
+esac
+
+. /usr/share/initramfs-tools/hook-functions
+
+mv /lib/firmware/updates/qcom/sc8280xp/LENOVO/21BX/qcadsp8280.mbn.disabled /lib/firmware/updates/qcom/sc8280xp/LENOVO/21BX/qcadsp8280.mbn
+
+# Define a list of firmware files to be included
+FIRMWARE_FILES="\
+updates/qcom/sc8280xp/LENOVO/21BX/qcadsp8280.mbn \
+updates/qcom/sc8280xp/LENOVO/21BX/qccdsp8280.mbn \
+updates/qcom/sc8280xp/LENOVO/21BX/qcdxkmsuc8280.mbn \
+updates/qcom/sc8280xp/LENOVO/21BX/qcvss8280.mbn \
+updates/qcom/sc8280xp/LENOVO/21BX/qcslpi8280.mbn \
+updates/qcom/sc8280xp/LENOVO/21BX/adspr.jsn \
+updates/qcom/sc8280xp/LENOVO/21BX/adspua.jsn \
+updates/qcom/sc8280xp/LENOVO/21BX/battmgr.jsn \
+updates/qcom/sc8280xp/LENOVO/21BX/cdspr.jsn \
+qcom/a660_sqe.fw \
+qcom/a660_gmu.bin"
+
+# Copy each firmware file to initramfs
+for file in $FIRMWARE_FILES; do
+    dir=$(dirname "$file")
+    mkdir -p "${DESTDIR}/lib/firmware/${dir}"
+    cp "/lib/firmware/${file}" "${DESTDIR}/lib/firmware/${dir}/"
+done
+
+mv /lib/firmware/updates/qcom/sc8280xp/LENOVO/21BX/qcadsp8280.mbn /lib/firmware/updates/qcom/sc8280xp/LENOVO/21BX/qcadsp8280.mbn.disabled
