@@ -5,3 +5,10 @@ Machine: Microsoft Dev Kit 2023
 Kernel-Flavors: any
 DTB-Id: qcom/sc8280xp-microsoft-blackrock.dtb
 
+Machine: Windows Dev Kit 2023
+Kernel-Flavors: any
+DTB-Id: qcom/sc8280xp-microsoft-blackrock.dtb
+
+Machine: Lenovo ThinkPad X13s
+Kernel-Flavors: any
+DTB-Id: qcom/sc8280xp-lenovo-thinkpad-x13s.dtb

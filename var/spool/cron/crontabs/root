@@ -25,6 +25,6 @@
 # 
 # m h  dom mon dow   command
 # @reboot sleep 10 && /usr/local/bin/set-bluetooth-address.sh
-@reboot sleep 3 && /usr/bin/bootmac -b -W wlP6p1s0 -p A04A5E
+@reboot sleep 3 && /usr/bin/bootmac -b -W wlP6p1s0 -p F4A80D
 
 
