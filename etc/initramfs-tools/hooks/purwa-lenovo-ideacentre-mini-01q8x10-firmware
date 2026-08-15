@@ -1,0 +1,45 @@
+#!/bin/sh
+
+set -e
+
+PREREQ=""
+
+prereqs()
+{
+	echo "$PREREQ"
+}
+
+case \\$1 in
+# get pre-requisites
+prereqs)
+	prereqs
+	exit 0
+	;;
+esac
+
+. /usr/share/initramfs-tools/hook-functions
+
+# Define a list of firmware files to be included
+
+FIRMWARE_FILES="\
+updates/qcom/x1p42100/LENOVO/91B6/qcadsp8380.mbn \
+updates/qcom/x1p42100/LENOVO/91B6/adsp_dtbs.elf \
+updates/qcom/x1p42100/LENOVO/91B6/adspr.jsn \
+updates/qcom/x1p42100/LENOVO/91B6/adsps.jsn \
+updates/qcom/x1p42100/LENOVO/91B6/adspua.jsn \
+updates/qcom/x1p42100/LENOVO/91B6/battmgr.jsn \
+updates/qcom/x1p42100/LENOVO/91B6/qccdsp8380.mbn \
+updates/qcom/x1p42100/LENOVO/91B6/cdsp_dtbs.elf \
+updates/qcom/x1p42100/LENOVO/91B6/cdspr.jsn \
+updates/qcom/x1p42100/LENOVO/91B6/qcdxkmsucpurwa.mbn \
+qcom/gen71500_gmu.bin.zst \
+qcom/gen71500_sqe.fw.zst"
+
+# Copy each firmware file to initramfs
+for file in $FIRMWARE_FILES; do
+    dir=$(dirname "$file")
+    mkdir -p "${DESTDIR}/lib/firmware/${dir}"
+    cp "/lib/firmware/${file}" "${DESTDIR}/lib/firmware/${dir}/"
+done
+
+
